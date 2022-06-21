@@ -1,0 +1,34 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/position';
+
+.greeting {
+  margin-top: 30px;
+  font-size: 1.5rem;
+  font-weight: 700;
+
+  span {
+    color: colors.$BLUE;
+  }
+}
+
+nav {
+  @include position.absolute(auto 100px 100px auto);
+  width: 0;
+  height: 0;
+}
+
+.mainPage {
+  width: 100%;
+  height: 100%;
+}
+
+.mainPageTodoList {
+  width: 100%;
+  height: 60%;
+}
+
+.circularMenu {
+  position: absolute;
+  width: 0;
+  height: 0;
+}

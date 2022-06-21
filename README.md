@@ -1,2 +1,1 @@
-# To-do
-To-do App 입니다.
+# 6팀 Todo List

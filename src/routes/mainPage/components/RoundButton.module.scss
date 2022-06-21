@@ -1,0 +1,61 @@
+@use '/src/styles/constants/colors';
+@use 'src/styles/mixins/animation';
+
+.roundButton {
+  width: 66px;
+  height: 66px;
+  color: colors.$WHITE;
+  background-color: colors.$BUTTON;
+  border-radius: 50%;
+  box-shadow: 0 10px 20px 0 rgba(colors.$BLACK, 15%);
+  transition: 0.3s;
+
+  svg {
+    display: block;
+    margin: auto;
+  }
+
+  &:hover {
+    background-color: rgba(colors.$TEAL, 90%);
+  }
+
+  &:active {
+    background-color: rgba(colors.$INDIGO, 90%);
+  }
+}
+
+.openMenuButton {
+  position: relative;
+  display: block;
+  margin: auto;
+  cursor: pointer;
+}
+
+.hideButton {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: hidden;
+  opacity: 0;
+}
+
+@mixin buttonOpen {
+  position: absolute;
+  display: inline;
+  opacity: 1;
+}
+
+.addButtonOpen {
+  @include buttonOpen;
+  transform: translateY(-70px);
+}
+
+.editButtonOpen {
+  @include buttonOpen;
+  top: 0;
+  transform: translateX(-70px);
+}
+
+.bump {
+  animation: bump 0.3s ease-out;
+}

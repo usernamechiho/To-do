@@ -1,0 +1,19 @@
+@use '/src/styles/constants/colors';
+
+.app {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100vw;
+  height: 100vh;
+  background-color: colors.$OUTSIDE_BACKGROUND;
+}
+
+.outerContainer {
+  position: relative;
+  width: 360px;
+  height: 720px;
+  overflow: hidden;
+  background-color: colors.$SIDE_BACKGROUND;
+  border-radius: 60px;
+}

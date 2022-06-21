@@ -1,0 +1,24 @@
+@use '/src/styles/mixins/flexbox';
+
+.container {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  transform: rotate(-90deg);
+}
+
+.profileImgContainer {
+  @include flexbox.flexbox(center, center);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.profileImg {
+  width: 75px;
+  height: 75px;
+  color: rgba(91, 125, 177, 50%);
+  transform: rotate(90deg);
+}

@@ -1,0 +1,112 @@
+@use '/src/styles/constants/colors';
+@use '/src/styles/mixins/flexbox';
+@use '/src/styles/constants/sizes';
+@use '/src/styles/mixins/position';
+
+.todoContainer {
+  @include flexbox.flexbox(0, center);
+  flex-direction: row;
+  width: 100%;
+  padding: 20px 10px;
+  margin-bottom: 7px;
+  background-color: colors.$WHITE;
+  border-radius: sizes.$TODO_BORDER_RADIUS;
+  box-shadow: rgba(149, 157, 165, 10%) 3px 3px 5px;
+  transition: 0.2s;
+
+  &:hover {
+    transform: scale(1.02);
+
+    .deleteIcon {
+      visibility: visible;
+    }
+  }
+}
+
+.edit {
+  background-color: colors.$GRAYD;
+}
+
+.checkBox {
+  @include flexbox.flexbox(center, center);
+  position: relative;
+  width: 20%;
+  height: 100%;
+
+  .checkBtn {
+    position: absolute;
+    width: sizes.$TODO_BTN;
+    height: sizes.$TODO_BTN;
+    background-color: colors.$WHITE;
+    border-radius: 50%;
+
+    // 버튼 색상 관리 받아오는 category가 시작이 소문자여야함
+    &.business {
+      border: 2px solid colors.$CATEGORY_BUSINESS;
+    }
+
+    &.personal {
+      border: 2px solid colors.$CATEGORY_PERSONAL;
+    }
+
+    &.health {
+      border: 2px solid colors.$CATEGORY_HEALTH;
+    }
+
+    &.hobby {
+      border: 2px solid colors.$CATEGORY_HOBBY;
+    }
+
+    &.businessSelected {
+      background-color: colors.$CATEGORY_BUSINESS;
+    }
+
+    &.personalSelected {
+      background-color: colors.$CATEGORY_PERSONAL;
+    }
+
+    &.healthSelected {
+      background-color: colors.$CATEGORY_HEALTH;
+    }
+
+    &.hobbySelected {
+      background-color: colors.$CATEGORY_HOBBY;
+    }
+  }
+
+  svg {
+    @include position.middleBox;
+    width: sizes.$TODO_BTN;
+    height: sizes.$TODO_BTN;
+    color: colors.$GRAYA;
+    cursor: pointer;
+  }
+}
+
+.taskMessageBox {
+  @include flexbox.flexbox(0, center);
+  position: relative;
+  width: 65%;
+  padding: 5px 0;
+  overflow: hidden;
+  font-size: sizes.$TASK_FONT_SIZE;
+
+  .taskMessage {
+    @include flexbox.flexbox(center, center);
+    position: relative;
+    font-size: 15px;
+    color: colors.$TASK_ITEM_TITLE;
+    text-align: left;
+    word-break: break-all;
+  }
+
+  .taskCompleted {
+    text-decoration: line-through;
+  }
+}
+
+.deleteIcon {
+  width: 15%;
+  cursor: pointer;
+  visibility: hidden;
+}

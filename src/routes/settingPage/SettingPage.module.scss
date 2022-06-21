@@ -1,0 +1,194 @@
+@use '../../styles/constants/colors';
+
+$HISTORY_COLOR: green;
+$HISTORY_HOVER: #32cd32;
+$HISTORY_ACTIVE: darkgreen;
+
+@mixin flexFullWidth {
+  display: flex;
+  width: 100%;
+}
+
+@mixin headerStyle {
+  width: 65%;
+  padding: 30px 0 0 10px;
+}
+
+@mixin buttonStyle {
+  width: 35%;
+  padding-top: 25px;
+}
+
+@mixin changeLogoutButton {
+  width: 80px;
+  height: 35px;
+}
+
+.container {
+  @include flexFullWidth;
+  flex-direction: column;
+  height: 100%;
+  background: colors.$MAIN_BACKGROUND;
+}
+
+.settingHeader {
+  @include flexFullWidth;
+  height: 25%;
+  border-bottom: 2px dotted colors.$SIDE_MENU_TITLE;
+
+  header {
+    @include headerStyle;
+
+    h1 {
+      font-size: 2rem;
+      font-weight: bold;
+      color: colors.$BIG_TITLE;
+      letter-spacing: 1px;
+    }
+
+    p {
+      margin-top: 30px;
+      font-size: 1.2rem;
+      color: colors.$BIG_TITLE;
+      letter-spacing: 1px;
+    }
+  }
+
+  div {
+    @include buttonStyle;
+  }
+}
+
+.profile {
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  margin: auto;
+  border-radius: 50%;
+  transition: all 0.3s;
+
+  &:hover {
+    width: 110px;
+    height: 110px;
+  }
+}
+
+.settingInfo {
+  @include flexFullWidth;
+  height: 40%;
+  border-bottom: 2px dotted colors.$SIDE_MENU_TITLE;
+
+  header {
+    @include headerStyle;
+
+    h1 {
+      margin-bottom: 10px;
+      color: colors.$BIG_TITLE;
+      letter-spacing: 1px;
+    }
+
+    p {
+      font-weight: bold;
+      color: colors.$TASK_ITEM_TITLE;
+    }
+
+    input {
+      width: 100px;
+      color: colors.$BIG_TITLE;
+      border: 0;
+      border-bottom: 2px solid #9b9b9b;
+      outline: 0;
+    }
+  }
+
+  h2 {
+    width: 200px;
+    margin-top: 40px;
+    color: $HISTORY_COLOR;
+    cursor: pointer;
+
+    &:hover {
+      color: $HISTORY_HOVER;
+    }
+
+    &:active {
+      color: $HISTORY_ACTIVE;
+    }
+  }
+
+  div {
+    @include buttonStyle;
+
+    button {
+      background: colors.$BLUE;
+      @include changeLogoutButton;
+
+      &:hover {
+        background: #006de5;
+      }
+
+      &:active {
+        background: #0061cc;
+      }
+    }
+  }
+}
+
+.calendarIcon {
+  margin-right: 8px;
+}
+
+.usernameHeader {
+  margin-top: 20px;
+}
+
+.settingSave {
+  @include flexFullWidth;
+  height: 35%;
+
+  header {
+    @include headerStyle;
+
+    p {
+      font-size: 1rem;
+      color: colors.$TASK_ITEM_TITLE;
+
+      span {
+        color: colors.$CATEGORY_PERSONAL;
+      }
+    }
+
+    button {
+      width: 150px;
+      height: 40px;
+      margin-top: 90px;
+      color: colors.$WHITE;
+      background: colors.$BLUE;
+
+      &:hover {
+        background: #006de5;
+      }
+
+      &:active {
+        background: #0061cc;
+      }
+    }
+  }
+
+  div {
+    @include buttonStyle;
+
+    button {
+      background: colors.$WARNING_TITLE;
+      @include changeLogoutButton;
+
+      &:hover {
+        background: #c62f3e;
+      }
+
+      &:active {
+        background: #b02a37;
+      }
+    }
+  }
+}
